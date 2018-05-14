@@ -1,1 +1,24 @@
-<h1>Detalle</h1>
+
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/lugares">Lugares</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{lugar.nombre}}</li>
+    </ol>
+  </nav>
+  <br>
+  <h1>{{lugar.nombre}}</h1>
+  <hr>
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <small>{{lugar.distancia}} km</small>
+      <p class="card-text">
+        {{lugar.descripcion}}
+      </p>
+      <p>Suscripción: {{lugar.plan}}</p>
+    </div>
+  </div>
+
+</div>

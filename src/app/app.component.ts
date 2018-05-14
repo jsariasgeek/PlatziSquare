@@ -8,14 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'PlatziSquare';
   lugares:any = [
-    {nombre: 'Floreria la Gardenia', active:true},
-    {nombre: 'Floreria la Gardenia', active:true},
-    {nombre: 'Floreria la Gardenia', active:true},
-    {nombre: 'Floreria la Gardenia', active:true},
-    {nombre: 'Floreria la Gardenia', active:true},
-    {nombre: 'Floreria la Gardenia', active:true},
-    {nombre: 'Floreria la Gardenia', active:true},
-    {nombre: 'Floreria la Ultima', active:false},
+    {cercania: 1, distancia: 1, nombre: 'Floreria la Gardenia', active:true},
+    {cercania: 2, distancia: 1.9, nombre: 'Floreria la Gardenia', active:true},
+    {cercania: 3, distancia: 5, nombre: 'Floreria la Gardenia', active:true},
+    {cercania: 1, distancia: 10, nombre: 'Floreria la Gardenia', active:true},
+    {cercania: 2, distancia: 35, nombre: 'Floreria la Gardenia', active:true},
+    {cercania: 1, distancia: 120, nombre: 'Floreria la Gardenia', active:true},
+    {cercania: 3, distancia: 10, nombre: 'Floreria la Gardenia', active:true},
+    {cercania: 1, distancia: 10, nombre: 'Floreria la Ultima', active:false},
   ]
 
   lat: number = 51.678418;

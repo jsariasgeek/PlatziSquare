@@ -1,7 +1,7 @@
 import {Directive, ElementRef, OnInit, Renderer2, Input} from '@angular/core';
 
 @Directive({
-  selector:'[resaltar]';
+  selector:'[resaltar]'
 })
 
 export class ResaltarDirective implements OnInit{

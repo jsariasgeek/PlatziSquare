@@ -1,13 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-@Component({
-  selector: 'app-lugares',
-  templateUrl: './lugares.component.html',
-  styleUrls: ['./lugares.component.css']
-})
-export class LugaresComponent implements OnInit {
-
-  title = 'PlatziSquare';
+@Injectable()
+export class LugaresService{
   lugares:any = [
     {id:1, cercania: 1, distancia: 1, nombre: 'Floreria la Gardenia', plan:'premium', active:true},
     {id:2, cercania: 1, distancia: 1, nombre: 'Floreria la Gardenia', plan:'premium', active:true},
@@ -18,21 +12,13 @@ export class LugaresComponent implements OnInit {
     {id:7, cercania: 1, distancia: 120, nombre: 'Floreria la Gardenia', plan:'free', active:true},
     {id:8, cercania: 3, distancia: 10, nombre: 'Floreria la Gardenia', plan:'premium', active:true},
     {id:9, cercania: 1, distancia: 10, nombre: 'Floreria la Ultima', plan:'premium', active:false},
-  ]
+  ];
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
-
-  constructor() { }
-
-
-  hacerAlgo(){
-    alert('Hiciste Click');
+  public getLugares(){
+    return this.lugares;
   }
 
-  ngOnInit() {
+  public buscarLugar(id){
+    return this.lugares.filter((lugar)=>{return lugar.id == id})[0] || null;
   }
-
 }
-
-

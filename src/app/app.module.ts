@@ -9,10 +9,11 @@ import {AgmCoreModule} from '@agm/core';
 import {ResaltarDirective} from './directives/resaltar.directive';
 import {ContarClicksDirective} from './directives/contar-clicks.directive';
 import {RouterModule, Routes} from '@angular/router';
-import {DetalleComponent} from './detalle/detalle.component';
-import { LugaresComponent } from './lugares/lugares.component';
-import { HomeComponent } from './home/home.component';
-import { ContactoComponent } from './contacto/contacto.component';
+import {DetalleComponent} from './components/detalle/detalle.component';
+import { LugaresComponent } from './components/lugares/lugares.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import {LugaresService} from './services/lugares.service';
 
 
 const appRoutes: Routes = [
@@ -39,7 +40,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     //bootstrap
   ],
-  providers: [],
+  providers: [
+    LugaresService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

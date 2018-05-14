@@ -12,29 +12,35 @@ import {RouterModule, Routes} from '@angular/router';
 import {DetalleComponent} from './detalle/detalle.component';
 import { LugaresComponent } from './lugares/lugares.component';
 import { HomeComponent } from './home/home.component';
+import { ContactoComponent } from './contacto/contacto.component';
+
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'lugares', component: LugaresComponent},
   {path:'detalle/:id', component: DetalleComponent},
+  {path:'contacto', component: ContactoComponent},
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetalleComponent
+    DetalleComponent,
     ResaltarDirective,
     ContarClicksDirective,
     LugaresComponent,
-    HomeComponent
+    HomeComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AgmCoreModule.forRoot({apiKey:'AIzaSyC0fdzE7tkcgoiMCn4VLOInQgpijVdo2mU'}),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    //bootstrap
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -16,7 +16,7 @@ export class DetalleComponent {
     {id:6, cercania: 2, distancia: 35, nombre: 'Floreria la Gardenia', plan:'premium', active:true, descripcion:'Pronto tendremos mas información'},
     {id:7, cercania: 1, distancia: 120, nombre: 'Floreria la Gardenia', plan:'free', active:true, descripcion:'Pronto tendremos mas información'},
     {id:8, cercania: 3, distancia: 10, nombre: 'Floreria la Gardenia', plan:'premium', active:true, descripcion:'Pronto tendremos mas información'},
-    {id:9, cercania: 1, distancia: 10, nombre: 'Floreria la Ultima', plan:'premium', active:false descripción:'Pronto tendremos más información'},
+    {id:9, cercania: 1, distancia: 10, nombre: 'Floreria la Ultima', plan:'premium', active:false, descripción:'Pronto tendremos más información'},
   ]
 
   id = null;

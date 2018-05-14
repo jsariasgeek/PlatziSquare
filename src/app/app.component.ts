@@ -10,6 +10,8 @@ export class AppComponent {
   a = 3;
   b = 5;
   disabled = true;
+  nombre:string = '';
+  apellido:string = '';
 
   constructor(){
     setTimeout(()=>{this.disabled=false},3000)

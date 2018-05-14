@@ -14,11 +14,16 @@ import { LugaresComponent } from './components/lugares/lugares.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import {LugaresService} from './services/lugares.service';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import { CrearComponent } from './components/crear/crear.component';
+import {SelectedDirective} from './directives/selected.directive';
 
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'lugares', component: LugaresComponent},
+  {path:'lugares/crear', component: CrearComponent},
   {path:'detalle/:id', component: DetalleComponent},
   {path:'contacto', component: ContactoComponent},
 ]
@@ -28,16 +33,20 @@ const appRoutes: Routes = [
     AppComponent,
     DetalleComponent,
     ResaltarDirective,
+    SelectedDirective,
     ContarClicksDirective,
     LugaresComponent,
     HomeComponent,
-    ContactoComponent
+    ContactoComponent,
+    CrearComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AgmCoreModule.forRoot({apiKey:'AIzaSyC0fdzE7tkcgoiMCn4VLOInQgpijVdo2mU'}),
     RouterModule.forRoot(appRoutes),
+    //firebase
+    AngularFireModule.initializeApp(environment.firebase),
     //bootstrap
   ],
   providers: [

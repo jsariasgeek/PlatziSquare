@@ -1,5 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
 <ul>
+  <hr>
   <ng-container *ngFor="let lugar of lugares">
     <li  *ngIf="lugar.active">{{lugar.nombre}}</li>
   </ng-container>

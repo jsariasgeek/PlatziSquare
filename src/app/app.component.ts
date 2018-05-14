@@ -18,6 +18,9 @@ export class AppComponent {
     {nombre: 'Floreria la Ultima', active:false},
   ]
 
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
   constructor(){
 
   }

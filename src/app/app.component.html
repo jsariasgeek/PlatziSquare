@@ -1,15 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <h2>{{a+b}}</h2>
-  <hr>
-  <button [disabled]="disabled" (click)="hacerAlgo()">Click Me!</button>
-  <hr>
-  <input type="text" placeholder="Tu nombre" [(ngModel)]="nombre">
-  <input type="text" placeholder="Tu apellido" [(ngModel)]="apellido">
-  <br>
-  Mi nombre es {{nombre}} {{apellido}}
-</div>
+<ul>
+  <li *ngFor="let lugar of lugares">{{lugar.nombre}}</li>
+</ul>
 

@@ -15,4 +15,8 @@ export class AppComponent {
     setTimeout(()=>{this.disabled=false},3000)
   }
 
+  hacerAlgo(){
+    alert('Hiciste Click');
+  }
+
 }

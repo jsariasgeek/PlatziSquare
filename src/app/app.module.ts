@@ -16,7 +16,7 @@ import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'lugares', component: LugaresComponent},
-  {path:'detalle', component: DetalleComponent},
+  {path:'detalle/:id', component: DetalleComponent},
 ]
 
 @NgModule({

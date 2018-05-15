@@ -9,11 +9,11 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a routerLink="">Home</a></li>
       <li class="breadcrumb-item"><a routerLink="/lugares">Lugares</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Crear Lugar</li>
+      <li class="breadcrumb-item active" aria-current="page">{{breadPalabra}}</li>
     </ol>
   </nav>
   <br>
-  <h1>Ingresa la información del lugar</h1>
+  <h1>{{palabra}} la información del lugar</h1>
   <br>
   <form>
     <div class="form-group">
@@ -26,12 +26,7 @@
     </div>
     <div class="form-group">
       <label for="textareamensaje">Plan</label>
-      <select name="plan" id="" class="form-control" [(ngModel)]="lugar.plan">
-        <ng-container *ngFor="let plan of planes;let i = index" >
-          <option [set_default] value="{{plan.db_name}}">{{plan.verbose_name}}</option>
-        </ng-container>
-
-      </select>
+      <input name="plan" class="form-control" type="text" [(ngModel)]="lugar.plan">
     </div>
     <h3>Datos de Dirección</h3>
     <div class="form-group">
@@ -48,24 +43,15 @@
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Ciudad</label>
-      <select name="ciudad" id="" class="form-control" [(ngModel)]="lugar.ciudad">
-        <option value="pereira" selected>Pereira</option>
-        <option value="bogota">Bogota</option>
-        <option value="cali">Cali</option>
-        <option value="medellin">Medellin</option>
-        <option value="bucaramanga">Bucaramanga</option>
-      </select>
+      <input name="ciudad" type="text" class="form-control" [(ngModel)]="lugar.ciudad">
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">País</label>
-      <select name="pais" id="" class="form-control"  [(ngModel)]="lugar.pais">
-        <option value="colombia" selected>Colombia</option>
-        <option value="ecuador">Ecuador</option>
-      </select>
+      <input name="pais" type="text" class="form-control" [(ngModel)]="lugar.pais">
     </div>
 
     <a class="btn btn-primary" (click)="guardarLugar()">Enviar</a>&nbsp;&nbsp;
-    <a routerLink="" class="btn btn-outline-secondary">Cancelar</a>
+    <a routerLink="/lugares" class="btn btn-outline-secondary">Cancelar</a>
   </form>
 
 </div>

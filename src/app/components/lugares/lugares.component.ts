@@ -11,27 +11,36 @@ export class LugaresComponent implements OnInit {
   title = 'PlatziSquare';
 
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat = 51.678418;
+  lng = 7.809007;
 
   lugares = null;
 
-  constructor(private  lugaresService:LugaresService) {
+  constructor(private  lugaresService: LugaresService) {
     lugaresService.getLugares().valueChanges().subscribe(
       lugares => {
         console.log('Estos son los lugares: ');
         console.log(lugares);
-        this.lugares = lugares
+        this.lugares = lugares;
       }
     );
   }
 
 
-  hacerAlgo(){
+  hacerAlgo() {
     alert('Hiciste Click');
   }
 
   ngOnInit() {
+  }
+
+  eliminarLugar(id) {
+    console.log('Voy a eliminar el lugar: ' + id);
+    this.lugaresService.getLugar(id).valueChanges().subscribe(
+      lugar => {
+        this.lugaresService.eliminarLugar(lugar);
+      }
+    );
   }
 
 }

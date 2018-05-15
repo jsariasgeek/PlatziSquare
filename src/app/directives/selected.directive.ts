@@ -10,7 +10,7 @@ export class SelectedDirective implements OnInit{
 
   }
 
-  @Input('set_default') value:string = '':
+  @Input('set_default') value:string = '';
 
   ngOnInit(){
 

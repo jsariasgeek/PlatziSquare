@@ -25,7 +25,7 @@ import {HttpClientModule} from '@angular/common/http';
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'lugares', component: LugaresComponent},
-  {path:'lugares/crear', component: CrearComponent},
+  {path:'lugares/crear/:id', component: CrearComponent},
   {path:'detalle/:id', component: DetalleComponent},
   {path:'contacto', component: ContactoComponent},
 ]
@@ -49,7 +49,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     //firebase
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
     //bootstrap
     HttpClientModule
   ],

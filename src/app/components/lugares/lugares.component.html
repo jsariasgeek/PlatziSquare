@@ -21,11 +21,11 @@
   <div class="row">
     <div class="col-md-8">
       <h2>Lugares Cercanos</h2>
-      <a routerLink="/lugares/crear" class="btn btn-primary">Crear Nuevo Negocio</a>
+      <a routerLink="/lugares/crear/new" class="btn btn-primary">Crear Nuevo Negocio</a>
       <br>
       <br>
       <ul class="list-group">
-        <ng-container *ngFor="let lugar of lugares; let i = index" [ngSwitch]="lugar.cercania">
+        <!--<ng-container *ngFor="let lugar of lugares; let i = index" [ngSwitch]="lugar.cercania">
           <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'view'}">
             <li class="list-group-item" contar-clicks [ngStyle]="{color:(lugar.active) ? 'black': 'gray'}" [ngClass]="{numero_par:(i+1)%2 !== 0}">
               {{lugar.nombre}} -
@@ -34,8 +34,24 @@
               <span *ngSwitchCase="3" [ngStyle]="{color:'red'}">Lejano</span>
             </li>
           </a>
-        </ng-container>
+        </ng-container>-->
       </ul>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let lugar of lugares; let i = index">
+          <td>
+            <a routerLink="/detalle/{{lugar.id}}">{{lugar.nombre}}</a>
+          </td>
+          <td>
+            <a routerLink="/lugares/crear/{{lugar.id}}" class="btn btn-light"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
+          </td>
+          <td>
+            <a (click)="eliminarLugar(lugar.id)" class="btn btn-light"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
     <div class="col-md-4">
       <h2>Destacados</h2>

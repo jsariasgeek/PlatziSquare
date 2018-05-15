@@ -18,6 +18,7 @@ import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import { CrearComponent } from './components/crear/crear.component';
 import {SelectedDirective} from './directives/selected.directive';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 
 const appRoutes: Routes = [
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     //firebase
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
     //bootstrap
   ],
   providers: [

@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Injectable()
 export class LugaresService{
@@ -14,11 +15,25 @@ export class LugaresService{
     {id:9, cercania: 1, distancia: 10, nombre: 'Floreria la Ultima', descripcion:'Esta es una breve descripción, más adelante tendremos más información.', plan:'premium', active:false},
   ];
 
+  constructor(private afDB:AngularFireDatabase){}
+
   public getLugares(){
     return this.lugares;
   }
 
   public buscarLugar(id){
     return this.lugares.filter((lugar)=>{return lugar.id == id})[0] || null;
+
   }
+
+  public guardarLugar(lugar){
+    console.log(lugar);
+    this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+    console.log('Guardé en Firebase');
+  }
+
+
+
+
+
 }

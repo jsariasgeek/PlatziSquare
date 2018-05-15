@@ -24,6 +24,7 @@ export class CrearComponent implements OnInit {
   guardarLugar(){
     this.lugar.id = Date.now();
     this.lugaresService.guardarLugar(this.lugar);
+    alert('Negocio guardado con éxito');
     this.lugar = {};
   }
 

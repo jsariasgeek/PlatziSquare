@@ -15,8 +15,15 @@ export class LugaresComponent implements OnInit {
   lng: number = 7.809007;
 
   lugares = null;
+
   constructor(private  lugaresService:LugaresService) {
-    this.lugares = lugaresService.getLugares();
+    lugaresService.getLugares().valueChanges().subscribe(
+      lugares => {
+        console.log('Estos son los lugares: ');
+        console.log(lugares);
+        this.lugares = lugares
+      }
+    );
   }
 
 

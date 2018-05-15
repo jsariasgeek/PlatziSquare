@@ -33,6 +33,7 @@
 
       </select>
     </div>
+    <h3>Datos de Dirección</h3>
     <div class="form-group">
       <label for="formGroupExampleInput">Distancia</label>
       <input name="distancia" type="number" class="form-control" id="formGroupExampleInput" placeholder="" [(ngModel)]="lugar.distancia">
@@ -40,6 +41,27 @@
     <div class="form-group">
       <label for="formGroupExampleInput2">Cercanía</label>
       <input name="cercania" type="number" class="form-control" id="formGroupExampleInput2" placeholder="" [(ngModel)]="lugar.cercania">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Calle y Número</label>
+      <input name="direccion" type="text" class="form-control" [(ngModel)]="lugar.direccion">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Ciudad</label>
+      <select name="ciudad" id="" class="form-control" [(ngModel)]="lugar.ciudad">
+        <option value="pereira" selected>Pereira</option>
+        <option value="bogota">Bogota</option>
+        <option value="cali">Cali</option>
+        <option value="medellin">Medellin</option>
+        <option value="bucaramanga">Bucaramanga</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">País</label>
+      <select name="pais" id="" class="form-control"  [(ngModel)]="lugar.pais">
+        <option value="colombia" selected>Colombia</option>
+        <option value="ecuador">Ecuador</option>
+      </select>
     </div>
 
     <a class="btn btn-primary" (click)="guardarLugar()">Enviar</a>&nbsp;&nbsp;

@@ -22,10 +22,18 @@ export class CrearComponent implements OnInit {
   }
 
   guardarLugar(){
-    this.lugar.id = Date.now();
-    this.lugaresService.guardarLugar(this.lugar);
-    alert('Negocio guardado con éxito');
-    this.lugar = {};
+    const direccion = `${this.lugar.direccion},${this.lugar.ciudad},${this.lugar.pais}`
+    this.lugaresService.obtenerGeoData(direccion).subscribe((result)=>{
+      this.lugar.lat = result.results[0].geometry.location.lat;
+      this.lugar.lng = result.results[0].geometry.location.lng;
+      console.log('lat: '+ this.lugar.lat);
+      console.log('lng: '+ this.lugar.lng);
+      this.lugar.id = Date.now();
+      this.lugaresService.guardarLugar(this.lugar);
+      alert('Negocio guardado con éxito');
+      this.lugar = {};
+    })
+
   }
 
 }

@@ -19,6 +19,7 @@ import {environment} from '../environments/environment';
 import { CrearComponent } from './components/crear/crear.component';
 import {SelectedDirective} from './directives/selected.directive';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {HttpClientModule} from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
     //bootstrap
+    HttpClientModule
   ],
   providers: [
     LugaresService

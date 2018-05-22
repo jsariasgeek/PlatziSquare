@@ -11,8 +11,8 @@ export class LugaresComponent implements OnInit {
   title = 'PlatziSquare';
 
 
-  lat = 51.678418;
-  lng = 7.809007;
+  lat = 4.813179;
+  lng = -75.6909575;
 
   lugares = null;
 

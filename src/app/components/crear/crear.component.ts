@@ -17,6 +17,7 @@ export class CrearComponent implements OnInit {
   lugar:any = {};
   palabra:any = null;
   breadPalabra:any = null;
+  id:any = null;
 
   constructor(private route: ActivatedRoute,private lugaresService:LugaresService) {
     this.id = this.route.snapshot.params['id'];

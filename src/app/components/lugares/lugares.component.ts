@@ -15,6 +15,8 @@ export class LugaresComponent implements OnInit {
   lng = -75.6909575;
 
   lugares = null;
+  mostrarError = false;
+  mensajeError = null;
 
   constructor(private  lugaresService: LugaresService) {
     lugaresService.getLugares().valueChanges().subscribe(
@@ -22,6 +24,8 @@ export class LugaresComponent implements OnInit {
         console.log('Estos son los lugares: ');
         console.log(lugares);
         this.lugares = lugares;
+      }, error =>{
+        console.log(error);
       }
     );
   }

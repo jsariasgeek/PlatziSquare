@@ -10,9 +10,13 @@
     </ol>
   </nav>
   <br>
-  <h1>{{lugar.nombre}}</h1>
+  <h1>{{lugar.nombre | titlecase }}</h1>
   <hr>
   <br>
+  <a routerLink="/lugares"><i class="fa fa-arrow-left fa-lg"></i></a>
+  <br>
+  <br>
+
   <div class="card">
     <div class="card-body">
       <h2>{{lugar.ciudad}}</h2>
@@ -21,6 +25,8 @@
         {{lugar.descripcion}}
       </p>
       <p>Suscripción: {{lugar.plan}}</p>
+      <p>Fecha de Creación: {{lugar.id | date:'fullDate' }}</p>
+      <small>{{'123123123.345345345' | number:'1.2-2'}}</small>
     </div>
   </div>
 

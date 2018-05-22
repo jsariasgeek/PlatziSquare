@@ -20,6 +20,7 @@ import { CrearComponent } from './components/crear/crear.component';
 import {SelectedDirective} from './directives/selected.directive';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {HttpClientModule} from '@angular/common/http';
+import {LinkifystrPipe} from './pipes/linkifystr.pipe';
 
 
 const appRoutes: Routes = [
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     LugaresComponent,
     HomeComponent,
     ContactoComponent,
-    CrearComponent
+    CrearComponent,
+    LinkifystrPipe
   ],
   imports: [
     BrowserModule,

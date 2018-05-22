@@ -40,7 +40,8 @@
         <tbody>
         <tr *ngFor="let lugar of lugares; let i = index">
           <td>
-            <a routerLink="/detalle/{{lugar.id}}">{{lugar.nombre}}</a>
+            <a routerLink="/detalle/{{lugar.id}}"><h5>{{lugar.nombre | titlecase }}</h5></a>
+            <p [innerHtml]="lugar.descripcion | linkifystr"></p>
           </td>
           <td>
             <a routerLink="/lugares/crear/{{lugar.id}}" class="btn btn-light"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
@@ -52,6 +53,9 @@
         </tr>
         </tbody>
       </table>
+      <div *ngIf="mostrarError" class="alert alert-warning" role="alert">
+       Tenemos Problemas, ha ocurrido un error ({{mensajeError}})
+      </div>
     </div>
     <div class="col-md-4">
       <h2>Destacados</h2>

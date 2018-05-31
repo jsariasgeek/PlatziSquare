@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 #Password and Config Files
-./src/environments
+/src/environments

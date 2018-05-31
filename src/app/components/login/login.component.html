@@ -1,0 +1,89 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <!--<div class="col-md-4 card bg-light rounded">
+      <br>
+      <br>
+      <div class="form-group">
+      <h1 class="text-center">Iniciar Sesión</h1>
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" [(ngModel)]="datosLogin.email">
+      <br>
+      <label for="password">Contraseña</label>
+      <input type="password" name="password" class="form-control" [(ngModel)]="datosLogin.password">
+      <br>
+      <a class="btn btn-primary btn-block" (click)="loguearse()">Iniciar Sesión</a>
+      <a class="btn btn-default btn-block">Cancelar</a>
+      </div>
+    </div>-->
+    <div class="col-md-4">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+<!--
+              <button class="btn btn-default text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+-->
+                <h4 class="text-center" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">Inicia Sesión con Tu Email</h4>
+<!--
+              </button>
+-->
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="form-group">
+
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="datosLogin.email">
+                <br>
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" class="form-control" [(ngModel)]="datosLogin.password">
+                <br>
+                <a class="btn btn-primary btn-block" (click)="loguearse()">Iniciar Sesión</a>
+                <a class="btn btn-default btn-block">Cancelar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo" style="background-color: #3b5998; color: white;" (click)="facebookLogin()">
+            <h5 class="mb-0">
+<!--
+              <button class="btn btn-default text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+-->
+                <h4 class="text-center" data-toggle="collapse" aria-controls="collapseTwo" data-target="#collapseTwo"><i class="fa fa-facebook" aria-hidden="true"></i> &nbsp; Ingresa con Facebook</h4>
+<!--
+              </button>
+-->
+            </h5>
+          </div>
+
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <!--<div class="card-body">
+              <div class="form-group">
+
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="datosLogin.email">
+                <br>
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" class="form-control" [(ngModel)]="datosLogin.password">
+                <br>
+                <a class="btn btn-primary btn-block" (click)="loguearse()">Iniciar Sesión</a>
+                <a class="btn btn-default btn-block">Cancelar</a>
+              </div>
+            </div>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

@@ -29,9 +29,20 @@
       <input name="plan" class="form-control" type="text" [(ngModel)]="lugar.plan">
     </div>
     <h3>Datos de Dirección</h3>
+    <div class="card">
+      <form>
+        <div class="form-group">
+          <label>Buscar Negocio en Google</label>
+          <input type="text" [formControl]="searchField" class="form-control">
+        </div>
+      </form>
+      <ul id="google-results" class="list-group">
+        <li class="list-group-item dropdown-item" *ngFor="let result of results$ | async" (click)="guardarDireccion(result)">{{result.formatted_address}}</li>
+      </ul>
+    </div>
     <div class="form-group">
       <label for="formGroupExampleInput">Distancia</label>
-      <input name="distancia" type="number" class="form-control" id="formGroupExampleInput" placeholder="" [(ngModel)]="lugar.distancia">
+      <input name="distancia" type="number" class="form-control" id="formGroupExampleInput" placeholder="" [(ngModel)]="lugar.distancia" >
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Cercanía</label>

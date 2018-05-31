@@ -11,7 +11,8 @@ export const environment = {
     projectId: "platzi-square-repeat",
     storageBucket: "",
     messagingSenderId: "991105488842"
-  }
+  },
+  googleMapsApiKey:"AIzaSyADTwwIq2uhGguaE7fIn8A3UE_hXegGav0",
 };
 
 /*

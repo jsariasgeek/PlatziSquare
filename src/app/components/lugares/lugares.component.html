@@ -2,6 +2,8 @@
 <br>
 <br>
 
+
+
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -17,11 +19,19 @@
 
 <hr>
 
+<!--
+<div class="container">
+  <div id="cuadrado" [@contenedorAnimable]="state" (@contenedorAnimable.start)="animacionInicia($event)" (@contenedorAnimable.done)="animacionTermina($event)"></div>
+  <button class="btn btn-default" (click)="animar()">Animar</button>
+</div>
+-->
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-8">
       <h2>Lugares Cercanos</h2>
-      <a routerLink="/lugares/crear/new" class="btn btn-primary">Crear Nuevo Negocio</a>
+      <a *ngIf="loggedIn" routerLink="/lugares/crear/new" class="btn btn-primary">Crear Nuevo Negocio</a>
       <br>
       <br>
       <ul class="list-group">
@@ -40,13 +50,18 @@
         <tbody>
         <tr *ngFor="let lugar of lugares; let i = index">
           <td>
-            <a routerLink="/detalle/{{lugar.id}}"><h5>{{lugar.nombre | titlecase }}</h5></a>
+            <h5><a routerLink="/detalle/{{lugar.id}}">{{lugar.nombre | titlecase }}</a></h5>
+            <h6>{{lugar.ciudad | titlecase }}</h6>
             <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+            <small>Plan:{{lugar.plan}}</small>
           </td>
-          <td>
+          <td style="color:orange">
+            <i *ngIf="lugar.plan=='premium'" class="fa fa-star fa-lg"></i>
+          </td>
+          <td *ngIf="loggedIn">
             <a routerLink="/lugares/crear/{{lugar.id}}" class="btn btn-light"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
           </td>
-          <td>
+          <td *ngIf="loggedIn">
             <a (click)="eliminarLugar(lugar.id)" class="btn btn-light"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
             </a>
           </td>
@@ -57,8 +72,16 @@
        Tenemos Problemas, ha ocurrido un error ({{mensajeError}})
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" [@contenedorAnimable]="state">
       <h2>Destacados</h2>
+      <ng-container *ngFor="let lugar of lugares">
+      <div class="alert alert-success" role="alert" *ngIf="lugar.plan=='premium'">
+        <h4 class="alert-heading">{{lugar.nombre}}</h4>
+        <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+        <hr>
+        <!--<p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>-->
+      </div>
+      </ng-container>
     </div>
   </div>
 

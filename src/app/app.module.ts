@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 //angular google maps
 import {AgmCoreModule} from '@agm/core';
@@ -21,14 +21,27 @@ import {SelectedDirective} from './directives/selected.directive';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {HttpClientModule} from '@angular/common/http';
 import {LinkifystrPipe} from './pipes/linkifystr.pipe';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import {AutorizacionService} from './services/autorizacion.service';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import { LogoutComponent } from './components/logout/logout.component';
+import {MyGuardService} from './services/my-guard.service';
+import { ProfileComponent } from './components/profile/profile.component';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'lugares', component: LugaresComponent},
-  {path:'lugares/crear/:id', component: CrearComponent},
+  {path:'lugares/crear/:id', component: CrearComponent, canActivate:[MyGuardService]},
   {path:'detalle/:id', component: DetalleComponent},
   {path:'contacto', component: ContactoComponent},
+  {path: 'profile', component: ProfileComponent, canActivate:[MyGuardService]},
+  {path:'login', component:LoginComponent},
+  {path:'registro', component: RegistroComponent},
+  {path:'logout', component: LogoutComponent}
 ]
 
 @NgModule({
@@ -42,21 +55,32 @@ const appRoutes: Routes = [
     HomeComponent,
     ContactoComponent,
     CrearComponent,
-    LinkifystrPipe
+    LinkifystrPipe,
+    LoginComponent,
+    RegistroComponent,
+    LogoutComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({apiKey:'AIzaSyC0fdzE7tkcgoiMCn4VLOInQgpijVdo2mU'}),
     RouterModule.forRoot(appRoutes),
     //firebase
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     //bootstrap
-    HttpClientModule
+    HttpClientModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
   providers: [
-    LugaresService
+    LugaresService,
+    AutorizacionService,
+    MyGuardService
+
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,9 @@ import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {Http} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
+import swal from 'sweetalert2';
+import {environment} from '../../environments/environment';
+
 
 @Injectable()
 export class LugaresService{
@@ -26,7 +29,8 @@ export class LugaresService{
    }
 
   public obtenerGeoData(direccion){
-    return this.http.get('http://maps.google.com/maps/api/geocode/json?address='+direccion);
+    const url = `https://maps.google.com/maps/api/geocode/json?address=${direccion}&key=${environment.googleMapsApiKey}`;
+    return this.http.get(url);
   }
 
   public guardarLugar(lugar){
@@ -37,8 +41,21 @@ export class LugaresService{
 
   public editarLugar(lugar){
     console.log(lugar);
-    this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
-    console.log('Guardé en Firebase');
+    this.afDB.database.ref('lugares/'+lugar.id).set(lugar).then((response)=>{
+      swal({
+        type: 'success',
+        title: 'Tu negocio se ha guardado con éxito',
+      })
+    }).catch((error)=>{
+      console.log(error);
+      swal({
+        type: 'error',
+        title: 'Se ha presentado un error',
+        text:error
+
+      })
+    })
+
   }
 
   public eliminarLugar(lugar){
